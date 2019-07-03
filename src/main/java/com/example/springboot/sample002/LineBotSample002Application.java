@@ -57,7 +57,7 @@ public class LineBotSample002Application {
 //    	TrainInformationDto dto = restTemplate.getForObject(API_ENDPOINT, TrainInformationDto.class, railway);
     	TokyoMetroService service = new TokyoMetroService();
     	TrainInformationDto[] dto = service.getTrainInfomation(railway);
-    	System.out.println("Text: " + dto[0].getTrainInformationText());
+    	String trainInformationText = dto.length > 0 ? dto[0].getTrainInformationText() : "そんな路線は東京メトロにはないよ！";
     	
 //        final BotApiResponse apiResponse = lineMessagingService
 //            .replyMessage(new ReplyMessage(event.getReplyToken(),
@@ -65,7 +65,7 @@ public class LineBotSample002Application {
 //            .execute().body();
     	final BotApiResponse apiResponse = lineMessagingService
                 .replyMessage(new ReplyMessage(event.getReplyToken(),
-                                               Collections.singletonList(new TextMessage(dto[0].getTrainInformationText()))))
+                                               Collections.singletonList(new TextMessage(trainInformationText))))
                 .execute().body();
         System.out.println("Sent messages: " + apiResponse);
     }
