@@ -30,7 +30,7 @@ public class LineBotSample002Application {
 	
     @EventMapping
     public void handleTextMessageEvent(MessageEvent<TextMessageContent> event) throws Exception {
-    	System.out.println("event: " + event);
+    	System.out.println("event: " + event.getMessage().getText());
         final BotApiResponse apiResponse = lineMessagingService
             .replyMessage(new ReplyMessage(event.getReplyToken(),
                                            Collections.singletonList(new TextMessage(event.getSource().getUserId()))))
