@@ -56,7 +56,7 @@ public class LineBotSample002Application {
     	
 //    	TrainInformationDto dto = restTemplate.getForObject(API_ENDPOINT, TrainInformationDto.class, railway);
     	TokyoMetroService service = new TokyoMetroService();
-    	TrainInformationDto dto = service.getTrainInfomation(railway);
+    	TrainInformationDto[] dto = service.getTrainInfomation(railway);
     	
         final BotApiResponse apiResponse = lineMessagingService
             .replyMessage(new ReplyMessage(event.getReplyToken(),

@@ -25,7 +25,7 @@ public class TokyoMetroService {
 		
 	}
 	
-	public TrainInformationDto getTrainInfomation(String railway) {
+	public TrainInformationDto[] getTrainInfomation(String railway) {
 		
 		restTemplate = new RestTemplate();
 //		MappingJackson2HttpMessageConverter messageConverter = new MappingJackson2HttpMessageConverter();
@@ -40,7 +40,7 @@ public class TokyoMetroService {
 			System.out.println("restTemplate is null");
 		}
 		System.out.println("size: " + restTemplate.getMessageConverters().size());
-		return restTemplate.getForObject(API_ENDPOINT, TrainInformationDto.class, railway);
+		return restTemplate.getForObject(API_ENDPOINT, TrainInformationDto[].class, railway);
 	}
 
 }
