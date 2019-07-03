@@ -59,6 +59,7 @@ public class LineBotSample002Application {
     	String railway = railwayMap.get(event.getMessage().getText());
     	System.out.println("railway: " + railway);
     	
+    	System.out.println("size: " + restTemplate.getMessageConverters().size());
     	TrainInformationDto dto = restTemplate.getForObject(API_ENDPOINT, TrainInformationDto.class, railway);
     	
         final BotApiResponse apiResponse = lineMessagingService
