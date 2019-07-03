@@ -59,10 +59,14 @@ public class LineBotSample002Application {
     	TrainInformationDto[] dto = service.getTrainInfomation(railway);
     	System.out.println("Text: " + dto[0].getTrainInformationText());
     	
-        final BotApiResponse apiResponse = lineMessagingService
-            .replyMessage(new ReplyMessage(event.getReplyToken(),
-                                           Collections.singletonList(new TextMessage(event.getSource().getUserId()))))
-            .execute().body();
+//        final BotApiResponse apiResponse = lineMessagingService
+//            .replyMessage(new ReplyMessage(event.getReplyToken(),
+//                                           Collections.singletonList(new TextMessage(event.getSource().getUserId()))))
+//            .execute().body();
+    	final BotApiResponse apiResponse = lineMessagingService
+                .replyMessage(new ReplyMessage(event.getReplyToken(),
+                                               Collections.singletonList(new TextMessage(dto[0].getTrainInformationText()))))
+                .execute().body();
         System.out.println("Sent messages: " + apiResponse);
     }
 
