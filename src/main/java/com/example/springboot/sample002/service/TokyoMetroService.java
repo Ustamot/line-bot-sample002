@@ -28,11 +28,11 @@ public class TokyoMetroService {
 	public TrainInformationDto getTrainInfomation(String railway) {
 		
 		restTemplate = new RestTemplate();
-		MappingJackson2HttpMessageConverter messageConverter = new MappingJackson2HttpMessageConverter();
-		List<MediaType> supportedMediaTypes = new ArrayList<>(messageConverter.getSupportedMediaTypes());
-		supportedMediaTypes.add(MediaType.TEXT_PLAIN); // text/plainのJacksonの処理対象にくわえる
-		messageConverter.setSupportedMediaTypes(supportedMediaTypes);
-		restTemplate.setMessageConverters(Collections.singletonList(messageConverter)); // カスタムしたHttpMessageConverterを適用
+//		MappingJackson2HttpMessageConverter messageConverter = new MappingJackson2HttpMessageConverter();
+//		List<MediaType> supportedMediaTypes = new ArrayList<>(messageConverter.getSupportedMediaTypes());
+//		supportedMediaTypes.add(MediaType.TEXT_PLAIN); // text/plainのJacksonの処理対象にくわえる
+//		messageConverter.setSupportedMediaTypes(supportedMediaTypes);
+//		restTemplate.setMessageConverters(Collections.singletonList(messageConverter)); // カスタムしたHttpMessageConverterを適用
 
 		if (restTemplate != null) {
 			System.out.println("restTemplate is not null");
