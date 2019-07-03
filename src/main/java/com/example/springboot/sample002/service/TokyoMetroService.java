@@ -19,6 +19,11 @@ public class TokyoMetroService {
 	}
 	
 	public TrainInformationDto getTrainInfomation(String railway) {
+		if (restTemplate != null) {
+			System.out.println("restTemplate is not null");
+		} else {
+			System.out.println("restTemplate is null");
+		}
 		System.out.println("size: " + restTemplate.getMessageConverters().size());
 		return restTemplate.getForObject(API_ENDPOINT, TrainInformationDto.class, railway);
 	}
