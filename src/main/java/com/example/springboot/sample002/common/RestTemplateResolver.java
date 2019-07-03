@@ -15,6 +15,7 @@ public class RestTemplateResolver {
 	
 	@Bean
 	public RestTemplate trainInfomationSearchRestTemplate() {
+		System.out.println("##### trainInfomationSearchRestTemplate");
 		RestTemplate restTemplate = new RestTemplate();
 		MappingJackson2HttpMessageConverter messageConverter = new MappingJackson2HttpMessageConverter();
 		List<MediaType> supportedMediaTypes = new ArrayList<>(messageConverter.getSupportedMediaTypes());
