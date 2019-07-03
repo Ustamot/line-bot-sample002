@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.client.RestTemplate;
@@ -43,7 +44,9 @@ public class LineBotSample002Application {
 	@Autowired
     private LineMessagingService lineMessagingService;
 	
-	private RestTemplate restTemplate = new RestTemplate();
+	@Autowired
+	@Qualifier("trainInfomationSearchRestTemplate")
+	private RestTemplate restTemplate;
 
 	public static void main(String[] args) {
 		SpringApplication.run(LineBotSample002Application.class, args);
