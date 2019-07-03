@@ -35,8 +35,8 @@ public class TrainInformationDto {
 	@JsonProperty("odpt:railway")
 	private String railway;
 
-	@JsonProperty("odpt:trainInformationStatus")
-	private String trainInformationStatus;
+//	@JsonProperty("odpt:trainInformationStatus")
+//	private String trainInformationStatus;
 
 	@JsonProperty("odpt:trainInformationText")
 	private String trainInformationText;
