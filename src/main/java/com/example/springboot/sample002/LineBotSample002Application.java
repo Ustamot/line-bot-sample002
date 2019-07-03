@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.springboot.sample002.dto.TrainInformationDto;
+import com.example.springboot.sample002.service.TokyoMetroService;
 import com.linecorp.bot.client.LineMessagingService;
 import com.linecorp.bot.model.ReplyMessage;
 import com.linecorp.bot.model.event.Event;
@@ -24,8 +25,6 @@ import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 @SpringBootApplication
 @LineMessageHandler
 public class LineBotSample002Application {
-	
-	static private final String API_ENDPOINT = "https://api.tokyometroapp.jp/api/v2/datapoints?rdf:type=odpt:TrainInformation&acl:consumerKey=b26ce611b4195e1ca43197c4ca9bc19082afe5b93a61bf4cb60036346f2cd797&odpt:railway={railway}";
 	
 	private static Map<String, String> railwayMap = new HashMap<String, String>() {
 	    {
@@ -44,10 +43,6 @@ public class LineBotSample002Application {
 	@Autowired
     private LineMessagingService lineMessagingService;
 	
-	@Autowired
-	@Qualifier("trainInfomationSearchRestTemplate")
-	private RestTemplate restTemplate;
-
 	public static void main(String[] args) {
 		SpringApplication.run(LineBotSample002Application.class, args);
 		System.out.println("hello");
@@ -59,8 +54,9 @@ public class LineBotSample002Application {
     	String railway = railwayMap.get(event.getMessage().getText());
     	System.out.println("railway: " + railway);
     	
-    	System.out.println("size: " + restTemplate.getMessageConverters().size());
-    	TrainInformationDto dto = restTemplate.getForObject(API_ENDPOINT, TrainInformationDto.class, railway);
+//    	TrainInformationDto dto = restTemplate.getForObject(API_ENDPOINT, TrainInformationDto.class, railway);
+    	TokyoMetroService service = new TokyoMetroService();
+    	TrainInformationDto dto = service.getTrainInfomation(railway);
     	
         final BotApiResponse apiResponse = lineMessagingService
             .replyMessage(new ReplyMessage(event.getReplyToken(),
