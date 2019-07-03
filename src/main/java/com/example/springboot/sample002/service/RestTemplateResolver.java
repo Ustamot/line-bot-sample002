@@ -1,4 +1,4 @@
-package com.example.springboot.sample002.common;
+package com.example.springboot.sample002.service;
 
 import java.util.ArrayList;
 import java.util.Collections;
