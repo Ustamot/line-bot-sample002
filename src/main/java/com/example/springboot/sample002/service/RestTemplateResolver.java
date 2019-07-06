@@ -1,16 +1,12 @@
 package com.example.springboot.sample002.service;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.MediaType;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
+@Configuration
 public class RestTemplateResolver {
 	
 	@Bean
