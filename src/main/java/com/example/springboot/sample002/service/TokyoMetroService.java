@@ -24,7 +24,7 @@ public class TokyoMetroService {
 	
 	public TrainInformationDto[] getTrainInfomation(String railway) {
 		
-/////		restTemplate = new RestTemplate();
+		restTemplate = new RestTemplate();
 //		MappingJackson2HttpMessageConverter messageConverter = new MappingJackson2HttpMessageConverter();
 //		List<MediaType> supportedMediaTypes = new ArrayList<>(messageConverter.getSupportedMediaTypes());
 //		supportedMediaTypes.add(MediaType.TEXT_PLAIN); // text/plainのJacksonの処理対象にくわえる
